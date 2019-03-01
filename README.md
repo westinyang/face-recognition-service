@@ -4,7 +4,7 @@
 
 使用face_recognition & flask 构建的人脸识别对比服务，提供HTTP接口，Pyinstaller打包项目
 
- 配置文件说明（`config.ini`）：
+ 配置文件说明 `config.ini`：
 ``` ini
 [config]
 ; 服务端口号，默认5000
