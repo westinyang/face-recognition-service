@@ -1,5 +1,5 @@
 __pycache__/
 build/
 dist/
-# face_recognition_models/
-# scipy-extra-dll
+face_recognition_models/
+scipy-extra-dll/
