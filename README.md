@@ -2,7 +2,7 @@
 
 #### 介绍
 
-使用face_recognition & flask 构建的人脸识别对比服务，提供HTTP接口，Pyinstaller打包项目
+使用 `face_recognition` & `flask` 构建的人脸识别对比服务，提供HTTP接口，Pyinstaller打包项目
 
  配置文件说明 `config.ini`：
 ``` ini
