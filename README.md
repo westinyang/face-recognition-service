@@ -1,12 +1,26 @@
 # face-recognition-service
 
 #### 介绍
-在face_recognition库的基础上构建的人脸识别服务（人脸对比接口...）
+
+使用face_recognition & flask 构建的人脸识别对比服务，提供HTTP接口，Pyinstaller打包项目
+
+ 配置文件说明（`config.ini`）：
+``` ini
+[config]
+; 服务端口号，默认5000
+port=5002
+; 阈值，阈值太低容易造成无法成功识别人脸，太高容易造成人脸识别混淆，默认0.6，推荐0.39、0.49
+tolerance=0.49
+; 允许上传文件的扩展名，默认png,jpg,jpeg
+allowed_extension=png,jpg,jpeg
+```
 
 #### 运行效果
+
 ![截图](./screenshot/01.png)
 
 #### 开发环境
+
 - Windows 10 64 Bit
 - Python 3.6
 - numpy-1.15.0+mkl-cp36-cp36m-win_amd64
@@ -16,6 +30,7 @@
 - cmake-3.12.1-win64-x64
 
 #### 安装要求
+
 > 新版本dlib 不再需要 Boost了，所以你可以跳过它。请记住，您仍需要满足以下要求
 1. 安装了C / C ++编译器的Microsoft Visual Studio 2015（或更高版本）
 2. `Python3`（我使用的是 `Python 3.6 x64`，其他版本应该也可以）
@@ -24,11 +39,11 @@
 
 #### 安装教程
 
-1. 从此 [链接](http://www.lfd.uci.edu/~gohlke/pythonlibs/) 下载并安装 `scipy` 和 `numpy+mkl`（必须是mkl版本）软件包。请记住根据您当前的Python版本获取正确的版本。
+1. 从此 [链接](http://www.lfd.uci.edu/~gohlke/pythonlibs/) 下载并安装 `scipy` 和 `numpy+mkl`（必须是mkl版本）软件包。请记住根据您当前的Python版本获取正确的版本
 2. 从此 [链接](https://sourceforge.net/projects/boost/files/) 下载当前二进制版本的 `Boost`，并解压到C:\local\boost_1_XX_X
 3. 从此 [仓库](https://github.com/davisking/dlib) 中获取最新版本的 `dlib`，并解压至任意目录
 4. 转到 `dlib` 目录打开cmd并按照以下命令构建dlib：(记得用 `Boost` 的当前版本替换XX）
-```
+``` cmd
 set BOOST_ROOT=C:\local\boost_X_XX_X
 set BOOST_LIBRARYDIR=C:\local\boost_X_XX_X\stage\lib
 python setup.py install --yes USE_AVX_INSTRUCTIONS
