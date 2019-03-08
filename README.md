@@ -21,6 +21,8 @@ allowed_extension=png,jpg,jpeg
 
 #### 开发环境
 
+> 安装所需文件打包下载地址：[face_recognition_win10_install_requires.zip](https://pan.baidu.com/s/1vneStX-WuObn4VHqUlbvDg)
+
 - Windows 10 64 Bit
 - Python 3.6
 - numpy-1.15.0+mkl-cp36-cp36m-win_amd64
@@ -39,7 +41,8 @@ allowed_extension=png,jpg,jpeg
 
 #### 安装教程
 
-> 安装所需文件打包下载地址：[face_recognition_win10_install_requires.zip](https://pan.baidu.com/s/1vneStX-WuObn4VHqUlbvDg)
+> 参考教程：[Windows Installation Tutorial](https://github.com/ageitgey/face_recognition/issues/175)
+
 1. 从此 [链接](http://www.lfd.uci.edu/~gohlke/pythonlibs/) 下载并安装 `scipy` 和 `numpy+mkl`（必须是mkl版本）软件包。请记住根据您当前的Python版本获取正确的版本
 2. 从此 [链接](https://sourceforge.net/projects/boost/files/) 下载当前二进制版本的 `Boost`，并解压到C:\local\boost_1_XX_X
 3. 从此 [仓库](https://github.com/davisking/dlib) 中获取最新版本的 `dlib`，并解压至任意目录
@@ -59,12 +62,14 @@ python setup.py install --yes USE_AVX_INSTRUCTIONS --yes DLIB_USE_CUDA
 
 #### 打包教程
 
+> 参考教程：[Freeze your script with Pyinstaller](https://github.com/ageitgey/face_recognition/issues/357)
+
 1. 确保您已经正确安装了项目相关依赖，并且脚本能正常运行
 2. `pip install pyinstaller`
 3. 从 `Python安装目录/Lib/site-packages` 中复制 `face_recognition_models` 和 `scipy-extra-dll` 到当前项目根目录，如果没有 `scipy-extra-dll`，在当前项目根目录创建一个同名的空文件夹
 4. 修改 `main.spec` 第13行 `pathex` 的值为当前项目在你电脑的绝对路径
-5. 运行 `build.bat`
-6. 如果没有看到错误信息，则可以在 `dist` 目录中找到您的可执行文件
+5. 运行 `build.bat` （打包过程会比较慢，耐心等待...）
+6. 如果没有看到错误信息，则可以在 `dist` 目录中找到您的可执行文件 main.exe
 7. 请享用
 
 #### 参与贡献
