@@ -24,7 +24,7 @@ app = Flask(__name__)
 CORS(app, resources=r'/*')
 
 
-# 首页面板
+# 接口文档页面
 @app.route('/', methods=['GET', 'POST'])
 def index():
     return"""
@@ -35,27 +35,31 @@ def index():
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
-    <title>人脸识别服务</title>
+    <title>人脸比对服务接口文档</title>
     <style type="text/css">
         body { background-color: #fff; color: #000; font-size:14px; }
     </style>
 </head>
 <body>
     <div>
-        =============================================<br/>
-        <strong>人脸识别服务接口文档</strong><br/>
-        =============================================<br/>
-        * POST URL       : http://<script>document.write(window.location.host?window.location.host:'0.0.0.0');</script>/face/compare<br/>
-        * Request params : file1, file2<br/>
-        * Response exam  : {'code':0,'data':{'recognition_result':1},'message':''}<br/>
-        * Return code desc<br/>
+        ==================================================<br/>
+        <strong style='font-size:18px;'>人脸比对服务接口文档</strong><br/>
+        ==================================================<br/>
+        * <strong>POST URL</strong><br/>
+        &nbsp;&nbsp;&nbsp;- http://<script>document.write(window.location.host?window.location.host:'0.0.0.0');</script>/face/compare<br/>
+        * <strong>Request params</strong><br/>
+        &nbsp;&nbsp;&nbsp;- file1, file2<br/>
+        * <strong>Response exam</strong><br/>
+        &nbsp;&nbsp;&nbsp;- {'code':0,'data':{'recognition_result':1,'face_distances':0.35},'message':''}<br/>
+        * <strong>Return code desc</strong><br/>
         &nbsp;&nbsp;&nbsp;- 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 正常<br/>
         &nbsp;&nbsp;&nbsp;- 1010 : 请求参数错误<br/>
         &nbsp;&nbsp;&nbsp;- 1020 : 存在格式不正确的文件<br/>
         &nbsp;&nbsp;&nbsp;- 1030 : 存在未识别到人脸的图像<br/>
-        * Return data desc<br/>
+        * <strong>Return data desc</strong><br/>
         &nbsp;&nbsp;&nbsp;- recognition_result : 人脸识别结果（1=识别通过 0=识别不通过）<br/>
-        =============================================<br/>
+        &nbsp;&nbsp;&nbsp;- face_distances&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 人脸比对差值（不相似度）<br/>
+        ==================================================<br/>
     </div>
 </body>
 </html>
@@ -96,8 +100,11 @@ def face_compare():
     match_results = face_recognition.compare_faces([code2[0]], code1[0], tolerance=tolerance)
     recognition_result = 1 if match_results[0] else 0
 
+    # 测试两张图像中人脸比对的差值（不相似度）
+    face_distances = face_recognition.face_distance([code2[0]], code1[0])
+
     # 返回结果
-    return build_api_result(0, "", {"recognition_result": recognition_result})
+    return build_api_result(0, "", {"recognition_result": recognition_result, "face_distances": round(face_distances[0], 2)})
 
 
 # 检查文件扩展名
@@ -118,21 +125,25 @@ def build_api_result(code, message, data):
 
 # 打印分割线
 def print_split_line():
-    print("=" * 80)
+    print("=" * 90)
 
 
 if __name__ == "__main__":
     print_split_line()
-    print(" * POST URL       : http://0.0.0.0:%s/face/compare" % (port))
-    print(" * Request params : file1, file2")
-    print(" * Response exam  : {'code':0,'data':{'recognition_result':1},'message':''}")
+    print(" * POST URL")
+    print("   - http://0.0.0.0:%s/face/compare" % (port))
+    print(" * Request params")
+    print("   - file1, file2")
+    print(" * Response exam")
+    print("   - {'code':0,'data':{'recognition_result':1,'face_distances':0.35},'message':''}")
     print(" * Return code desc")
     print("   - 0    : 正常")
     print("   - 1010 : 请求参数错误")
     print("   - 1020 : 存在格式不正确的文件")
     print("   - 1030 : 存在未识别到人脸的图像")
     print(" * Return data desc")
-    print("   - recognition_result : 人脸识别结果（1=识别通过 0=识别不通过）")
+    print("   - recognition_result : 人脸比对结果（1=比对通过 0=比对不通过）")
+    print("   - face_distances     : 人脸比对差值（不相似度）")
     print_split_line()
     # Run
     app.config['JSON_AS_ASCII'] = False

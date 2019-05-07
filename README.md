@@ -2,14 +2,18 @@
 
 #### 介绍
 
-使用 `face_recognition` & `flask` 构建的人脸识别对比服务，提供HTTP接口，Pyinstaller打包项目
+使用 `Face Recognition` & `Flask` 构建的人脸比对服务，提供HTTP接口，Pyinstaller打包项目为可独立运行的exe程序。
 
- 配置文件说明 `config.ini`：
+新增人脸比对差值，可参考接口返回结果中的 `face_distances` 自行判定是否比对通过。
+
+#### 配置文件说明 `config.ini`：
+
 ``` ini
 [config]
 ; 服务端口号，默认5000
-port=5002
-; 阈值，阈值太低容易造成无法成功识别人脸，太高容易造成人脸识别混淆，默认0.6，推荐0.39、0.49
+port=5000
+; 阈值，太低容易造成无法成功识别人脸，太高容易造成人脸识别混淆，默认0.6，推荐0.39、0.49
+; 也可以理解为两张人脸的差值（不相似度），比对结果 < 此值，人脸比对通过
 tolerance=0.49
 ; 允许上传文件的扩展名，默认png,jpg,jpeg
 allowed_extension=png,jpg,jpeg
@@ -18,6 +22,8 @@ allowed_extension=png,jpg,jpeg
 #### 运行效果
 
 ![截图](./screenshot/01.png)
+
+![截图](./screenshot/02.png)
 
 #### 开发环境
 
@@ -57,8 +63,9 @@ python setup.py install --yes USE_AVX_INSTRUCTIONS --yes DLIB_USE_CUDA
 5. `pip show dlib`
 6. `pip install face_recognition`
 7. `pip install configparser flask flask_cors`
-8. `python main.py`
-9. 请享用
+8. `cd 当前项目目录`
+9. `python main.py` 
+10. 请享用
 
 #### 打包教程
 
