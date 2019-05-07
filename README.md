@@ -6,6 +6,8 @@
 
 新增人脸比对差值，可参考接口返回结果中的 `face_distances` 自行判定是否比对通过。
 
+本地没环境？打包太麻烦？此处直接下载最新发行版 [face-recognition-service v1.1](https://gitee.com/westinyang/face-recognition-service/releases/v1.1)
+
 #### 配置文件说明 `config.ini`：
 
 ``` ini
