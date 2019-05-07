@@ -1,9 +1,9 @@
 # face-recognition-service
 
 [![Build Status](https://img.shields.io/appveyor/ci/gruntjs/grunt.svg)](https://gitee.com/westinyang/face-recognition-service)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://gitee.com/westinyang/face-recognition-service/blob/master/LICENSE)
+[![License](https://img.shields.io/hexpm/l/plug.svg)](https://gitee.com/westinyang/face-recognition-service/blob/master/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://gitee.com/westinyang/face-recognition-service/pulls)
-[![](	https://img.shields.io/redmine/plugin/stars/redmine_xlsx_format_issue_exporter.svg)]()
+[![](https://img.shields.io/redmine/plugin/stars/redmine_xlsx_format_issue_exporter.svg)]()
 #### 介绍
 
 使用 `Face Recognition` & `Flask` 构建的人脸比对服务，提供HTTP接口，Pyinstaller打包项目为可独立运行的exe程序。
