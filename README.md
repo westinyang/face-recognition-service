@@ -7,7 +7,10 @@
 [![fork](https://gitee.com/westinyang/face-recognition-service/badge/fork.svg?theme=dark)](https://gitee.com/westinyang/face-recognition-service/members)
 <!-- [![](https://img.shields.io/redmine/plugin/stars/redmine_xlsx_format_issue_exporter.svg)](https://gitee.com/westinyang/face-recognition-service) -->
 
-#### 介绍
+- [Gitee](https://gitee.com/westinyang/face-recognition-service)
+- [Gtihub](https://github.com/westinyang/face-recognition-service)
+
+## 介绍
 
 使用 `Face Recognition` & `Flask` 构建的人脸比对服务，提供HTTP接口，Pyinstaller打包项目为可独立运行的exe程序。
 
@@ -15,7 +18,7 @@
 
 本地没环境？打包太麻烦？此处直接下载最新发行版 [face-recognition-service releases](https://gitee.com/westinyang/face-recognition-service/releases)
 
-#### 配置文件说明 `config.ini`：
+## 配置文件说明 `config.ini`：
 
 ``` ini
 [config]
@@ -28,13 +31,13 @@ tolerance=0.49
 allowed_extension=png,jpg,jpeg
 ```
 
-#### 运行效果
+## 运行效果
 
 ![截图](./screenshot/01.png)
 
 ![截图](./screenshot/02.png)
 
-#### 开发环境
+## 开发环境
 
 > 安装所需文件打包下载地址：[face_recognition_win10_install_requires.zip](https://pan.baidu.com/s/1vneStX-WuObn4VHqUlbvDg)
 
@@ -46,7 +49,7 @@ allowed_extension=png,jpg,jpeg
 - dlib-19.15
 - cmake-3.12.1-win64-x64
 
-#### 安装要求
+## 安装要求
 
 > 新版本dlib 不再需要 Boost了，所以你可以跳过它。请记住，您仍需要满足以下要求
 1. 安装了C / C ++编译器的Microsoft Visual Studio 2015（或更高版本）
@@ -54,7 +57,7 @@ allowed_extension=png,jpg,jpeg
 3. `Boost` 库版本1.63或更新的版本
 4. `CMake` 安装并且添加到系统环境变量
 
-#### 安装教程
+## 安装教程
 
 > 参考教程：[Windows Installation Tutorial](https://github.com/ageitgey/face_recognition/issues/175)
 
@@ -76,7 +79,7 @@ python setup.py install --yes USE_AVX_INSTRUCTIONS --yes DLIB_USE_CUDA
 9. `python main.py` 
 10. 请享用
 
-#### 打包教程
+## 打包教程
 
 > 参考教程：[Freeze your script with Pyinstaller](https://github.com/ageitgey/face_recognition/issues/357)
 
@@ -88,7 +91,7 @@ python setup.py install --yes USE_AVX_INSTRUCTIONS --yes DLIB_USE_CUDA
 6. 如果没有看到错误信息，则可以在 `dist` 目录中找到您的可执行文件 main.exe
 7. 请享用
 
-#### 参与贡献
+## 参与贡献
 
 1. Fork 本仓库
 2. 新建 Feat_xxx 分支
